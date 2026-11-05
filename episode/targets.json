@@ -1,0 +1,9 @@
+[{"name":"yt_search","url":"https://www.youtube.com/results?search_query=Claude+Code+video+editing","wait":3500},
+{"name":"parakeet","url":"https://huggingface.co/nvidia/parakeet-tdt-0.6b-v2","find":"English"},
+{"name":"whisper","url":"https://github.com/openai/whisper","find":"Robust Speech Recognition via Large-Scale Weak Supervision"},
+{"name":"hyperframes","url":"https://github.com/heygen-com/hyperframes","find":"Write HTML. Render video."},
+{"name":"openscreen","url":"https://github.com/siddharthvaddem/openscreen","find":"Create stunning demos for free"},
+{"name":"ffmpeg","url":"https://ffmpeg.org/","find":"A complete, cross-platform solution"},
+{"name":"claude_pricing","url":"https://claude.com/pricing","find":"$22 if billed monthly"},
+{"name":"epidemic_pricing","url":"https://www.epidemicsound.com/pricing/","find":"Per month, billed"},
+{"name":"x_anthropic","url":"https://x.com/AnthropicAI","wait":4000}]

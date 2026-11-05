@@ -1,0 +1,18 @@
+# 素材與輸出
+*.mp4
+*.mov
+*.m4a
+*.mp3
+*.wav
+*.png
+*.jpg
+*.srt
+# 字型（需自行授權）
+*.ttf
+*.otf
+# 環境與暫存
+.venv/
+__pycache__/
+chrome-shot-profile/
+.hyperframes/
+.DS_Store
