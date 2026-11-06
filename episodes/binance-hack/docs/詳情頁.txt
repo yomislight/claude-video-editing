@@ -1,0 +1,93 @@
+💳 立即註冊加密貨幣虛擬信用卡（推廣連結）：
+https://uupay.com/register?invitationCode=DJNA5W
+
+🦧TG us加入加密未来社群：
+https://t.me/+fXqjJaVgaKZjYjVl
+
+10 月 29 日，幣安遭遇黑客攻擊，涉及資產約 63 億美元，是加密行業規模最大的一次被盜事件，約是去年 Bybit 被盜金額的 4 倍。幣安在 11 月 3 日公布了初步調查報告，這期 Yomi 老師把官方報告、FBI、鏈上分析機構的公開資料整理在一起，把整條攻擊鏈拆開來看。
+
+這不是一次單點入侵，而是一場跨越好幾個月的多階段攻擊。6 月，一名錢包工程師安裝了被篡改的 Homebrew，團隊資訊因此外洩。9 月，黑客偽裝成招聘平台上的 HR，用一份「面試作業」讓另一名工程師的電腦被植入惡意程式。10 月 20 日，攻擊者再借用內部 AI 工具當跳板，一步步拿到容器部署憑證，最後接觸到錢包的簽名服務。
+
+10 月 29 日當晚，資產開始從多條鏈上的熱錢包被轉出。以太坊上，黑客利用 EIP-7702 的授權機制，讓幣安的一個熱錢包指向惡意合約，一筆交易裡塞進 50 份已簽名的授權。授權生效後 3 分 24 秒，Binance 14 錢包裡的資產開始被批量轉走。
+
+為什麼幣安說沒有發現私鑰洩露，錢卻還是被轉走？暫停提現之後，鏈上的授權為什麼還在生效？這期也會用「公司印章」的比喻，講清楚私鑰被盜和簽名服務被利用的差別。
+
+最後會整理資金流向與凍結情況：黑客如何轉移穩定幣、發行方與追蹤機構怎麼凍結資產，FBI 將這次事件歸因於與朝鮮相關的黑客組織 TraderTraitor，以及幣安表示損失由平台承擔、不轉嫁給用戶。
+
+如果你對這次事件還有其他疑問，歡迎留言討論。
+
+訂閱加密未來，持續追蹤 Yomi 老師的 AI 工具實測、Agent 工作流程與 Crypto 研究。
+
+⏱️ 章節
+0:00 精彩預告
+0:15 開場
+0:57 攻擊鏈全貌
+1:40 規模有多大？對比 Bybit
+2:24 6 月：工程師 A 與被篡改的 Homebrew
+3:36 9 月：假 HR 與面試作業
+5:08 10 月 20 日：AI 工具成了跳板
+7:52 10 月 29 日：資產開始轉出
+8:52 EIP-7702 授權機制
+10:36 50 份已簽名授權
+11:25 授權生效後 3 分 24 秒
+11:48 私鑰被盜，還是簽名服務被利用？
+13:31 錢轉去了哪裡
+14:16 FBI 歸因與用戶資產
+15:22 總結
+
+🔗 本期資料來源
+
+幣安初步調查報告（2026-11-03）：
+https://www.binance.com/en/square/post/11-03-2026-binance-posts-initial-findings-on-29-oct-hack-98-of-6-34b-stolen-assets-replenished-multi-stage-attack-detailed-384312984895952
+
+幣安安全事件公告：
+https://www.binance.com/en/support/announcement/detail/c5a8729a97ac486d963784d96c5642d7
+
+幣安官方 X 暫停充提公告：
+https://x.com/binance/status/2115981055043981791
+
+FBI 公告：
+https://www.fbi.gov/investigate/cyber/alerts/2026/north-korea-responsible-for-6-billion-binance-attack
+
+TRM Labs 分析：
+https://www.trmlabs.com/resources/blog/north-korea-steals-usd-6-36-billion-from-binance-in-the-largest-hack-in-history
+
+Elliptic 資金追蹤：
+https://www.elliptic.co/insights/how-north-korea-is-laundering-the-6-4-billion-stolen-from-binance/
+
+Blockaid 鏈上分析：
+https://www.binance.com/en/square/post/382683840167767
+
+CoinDesk：沒有證據顯示 AI 參與資金轉移：
+https://www.coindesk.com/tech/2026/11/02/no-proof-of-ai-in-north-korean-hackers-move-of-stolen-binance-funds-through-thousands-of-wallets
+
+EIP-7702 規範：
+https://eips.ethereum.org/EIPS/eip-7702
+
+📺 新聞畫面來源
+
+CNN、DW News、FRANCE 24、Bloomberg Television（YouTube 公開報導片段，僅作評論引用）
+
+📹 往期影片回顧
+
+GPT-6 Astra 美股 10,000 U 模擬交易實驗：
+https://www.youtube.com/watch?v=ngwd4dmP4g0
+
+不會寫程式也能做 AI 量化？Hyper Alpha Arena 實測：
+https://www.youtube.com/watch?v=lZ6foaArdQA
+
+Hyperliquid 機器人自動跟單實測：
+https://www.youtube.com/watch?v=IhilgWtzXYU
+
+AI 交易員軍團｜多模型與交易所配置：
+https://www.youtube.com/watch?v=u7F2XdB65rw
+
+⚠️ 免責聲明
+
+本影片為公開資料整理與事件分析，僅供研究及經驗分享，不構成投資建議。
+
+影片內容依據幣安官方報告、執法機構與鏈上分析機構截至錄製時的公開資訊，事件調查仍在進行中，金額與細節可能隨後續公告更新，請以官方最新資訊為準。
+
+加密資產交易風險高，請自行研究（DYOR），獨立判斷並承擔風險。
+
+#幣安 #Binance #黑客 #加密貨幣 #EIP7702 #區塊鏈安全 #朝鮮黑客 #加密未來
