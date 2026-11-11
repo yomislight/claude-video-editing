@@ -9,6 +9,11 @@ description: 口播長影片的剪輯規範和全流程：轉寫、按腳本粗�
 - 同一句話錄了好幾遍，用最後一條講完整的
 - 句子和句子之間留 0.2 秒
 - 提詞的口令、講錯的、罵人的，全部刪掉
+- 句子裡的語氣詞全部刪掉：嗯、呃、額、啊、呀、哎、誒、唉、哦（「總額」這類詞裡的字不算）
+- 重講、重複的半句一定要清乾淨；交片前用 FunASR 逐字查，不能靠 Whisper
+- 口播裡念的「第一步／第二步／最後一步」是章節標題，不剪進去，交給標題卡和 YouTube 章節；正文開頭的「第X步」只刪這幾個字，刪了不成句就整句刪
+- 刀口不能切到相鄰的字，句尾最後一個字要完整（「列好」「股價」「拜拜」都切壞過）
+- 句和句之間的自然停頓不要壓得太短，聽起來急就留原本的停頓
 - 粗剪的時候先不動畫面，只管把話剪順
 - 我給的字幕檔案優先，不用從頭轉寫
 - 每次都匯出 mp4、Premiere XML、FCPXML、剪輯單
@@ -68,6 +73,15 @@ description: 口播長影片的剪輯規範和全流程：轉寫、按腳本粗�
 - 結尾最後一個詞要看音量，不能只信轉寫時間，否則會切掉半個字。
 - 原片有水印或懸浮圖示時，先裁掉再做母帶，所有匯出都用這個母帶。
 - 帶時間碼的意見要對回片段編號，先確認是哪一段再改。
+
+### 逐字檢查（2026-11-11 AI美股那期學到的）
+- **Whisper 會把口吃、重講的半句和語氣詞「洗掉」**，整段轉寫、單句轉寫都一樣，所以拿 Whisper 對腳本看不出重複和語氣詞。那期因此漏了二十幾處重複、五十處語氣詞。
+- 逐字轉寫用 FunASR Paraformer：環境 `~/ai-tools/venvs/funasr`，`scripts/fasr.py in.wav out.json`，16 分鐘約 2 分鐘，每個字有時間。
+- 重複：`scripts/repeats.py`（幾個字內又出現同一串）＋ `scripts/repeats2.py`（放寬版、單字結巴）。每條人工判斷：「一層一層」「怎麼申請怎麼設置」是正常說法，保留。
+- 語氣詞：先對**原片**跑一次 fasr，`scripts/srcfillers2.py` 把每個語氣詞在前後 2 秒的短片段裡重新定位再刪（長音頻的逐字時間偶爾會偏一個字，直接用會刪錯字，那期刪掉過「就」「也」）。刀口上的用 `scripts/cutfillers.py` 在粗剪上定位、跨刀口分兩段刪。和前一個字連讀的（如「我啊」）起點要往後挪，不然會連前一個字一起刪掉。
+- 要刪的原片區間寫進 `drops.json`，要保住不被切的區間寫進 `fills.json`（例如句尾字、兩句之間要留的停頓），`scripts/drops.py` 在 build_edl 之後套用（先 fills 後 drops）。
+- 長音頻 fasr 會自己疊字（「董董事會」「簡簡單」）或聽出不存在的「啊」，可疑處用 `scripts/fasr_many.py` 或 `scripts/anychars.py` 切 3–20 秒短片段再轉，消失就是誤報。
+- 每次修完都重跑 fasr＋repeats＋fillers，直到只剩正常說法；交片前用成片 mp4 的聲音再跑一次。
 
 ## 三、視覺風格
 
@@ -132,9 +146,17 @@ description: 口播長影片的剪輯規範和全流程：轉寫、按腳本粗�
 | `make_caps.py` | 成片轉寫 → 校正後的字幕（`FIX` 表每期要改） |
 | `facetrack.swift` | macOS 全片人臉定位 |
 | `capture.mjs` | 抓真實網頁並定位要高亮的句子 |
+| `fasr.py` | FunASR 逐字轉寫（不吞重複和語氣詞），輸出逐字時間 |
+| `anychars.py` / `fasr_many.py` | 短片段逐字轉寫，用來精確定位、排除誤報 |
+| `repeats.py` / `repeats2.py` | 找重講、重複的半句和單字結巴 |
+| `fillers.py` | 列出逐字稿裡的語氣詞 |
+| `srcfillers2.py` | 在原片短片段裡重新定位語氣詞，寫進 `drops.json` |
+| `cutfillers.py` | 刀口上的語氣詞：在粗剪上定位、換算回原片 |
+| `autodrop.py` | 把選中的重複換算成原片時間、對齊停頓，寫進 `drops.json` |
+| `drops.py` | build_edl 之後套用 `fills.json`（保住）和 `drops.json`（刪除） |
 
 環境變數：`SRC` 原片、`OUT` 輸出、`NAME` 工程名、`SRC_FRAMES` 原片總幀數。
 
 `edl.txt` 每行一句，數字是字幕序號：`10-14` 連續幾條，`16[5:11]` 取一條裡的第 5–11 字，`@295.0-297.1=文字` 直接指定原片時間，`#` 是註釋。
 
-依賴：FFmpeg、whisper.cpp、HyperFrames、Python（numpy）。
+依賴：FFmpeg、whisper.cpp、FunASR（`~/ai-tools/venvs/funasr`）、HyperFrames、Python（numpy）。
