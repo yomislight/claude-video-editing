@@ -14,9 +14,9 @@
 ```text
 .
 ├── skills/video-edit-rules/   可直接交給 Claude 的剪輯規範（Skill）
-│   ├── SKILL.md               規範與完整流程
+│   ├── SKILL.md               規範與完整流程（版本 A 新聞片、版本 B 教程片）
 │   ├── assets/style.css       視覺樣式
-│   └── scripts/               粗剪、匯出、人臉定位、網頁截圖腳本
+│   └── scripts/               粗剪、逐字檢查、匯出、人臉定位、網頁與 K 線截圖、繁體化腳本
 ├── skills/news-event-longform/  新聞事件長片流程（Skill）
 │   ├── SKILL.md               預告結構、真實素材、渲染、詳情頁、章節、封面
 │   ├── scripts/               新聞錄屏、推文截圖、串流渲染、章節檢查、封面抽圖
@@ -43,6 +43,8 @@
 
 4. 帶著時間碼給意見，最後說「把你剛剛學到的記進剪輯規範」。
 
+自己的頻道名、本機路徑、推廣連結放在 `skills/video-edit-rules/LOCAL.md`（已寫進 `.gitignore`），Claude 開剪前會先讀它，不會跟著規範一起上傳。
+
 ## 工作流程
 
 ```mermaid
@@ -63,7 +65,7 @@ flowchart LR
 
 | 角色 | 工具 | 費用 |
 |---|---|---|
-| 剪輯師 | [Claude Code](https://claude.com/product/claude-code) | Claude Pro（月付 $22，日本區含稅，2026-11-05） |
+| 剪輯師 | [Claude Code](https://claude.com/product/claude-code) | Claude Pro（價格依地區，見[官網](https://claude.com/pricing)） |
 | 聽寫員 | [Whisper](https://github.com/openai/whisper) | 免費 |
 | 動畫師 | [HyperFrames](https://github.com/heygen-com/hyperframes) | 免費 |
 | 資料員 | 瀏覽器（真實網頁截圖） | 免費 |

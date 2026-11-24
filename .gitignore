@@ -16,3 +16,6 @@ __pycache__/
 chrome-shot-profile/
 .hyperframes/
 .DS_Store
+# 本機專用設定（頻道、路徑、推廣連結），不上傳
+LOCAL.md
+*.local.*

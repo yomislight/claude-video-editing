@@ -6,7 +6,7 @@ d = json.load(open('segments.json'))
 fps, segs = d['fps'], d['segments']
 rep = json.load(open('report.json', encoding='utf-8'))
 line_text = {}
-FIX=[('Cloud Code','Claude Code'),('Cloud','Claude'),('cloud','Claude'),('premium','Premiere'),('FM Page','FFmpeg'),('剪印','剪映'),('黑镜','HeyGen'),('幽密','yomi'),('桌面板','桌面版'),('资料源','资料员'),('Hyperframes','HyperFrames'),('Hello','哈喽'),('Paracate','Parakeet'),('epidemic','Epidemic'),('减硬','剪辑'),('寄到','记到'),('open screen','Openscreen'),('OpenScreen','Openscreen'),('whisper','Whisper'),('每减一支','每剪一支'),('一只','一支'),('整只','整支'),('这条系统','这套系统')]
+FIX=[('Cloud Code','Claude Code'),('Cloud','Claude'),('cloud','Claude'),('premium','Premiere'),('FM Page','FFmpeg'),('剪印','剪映'),('黑镜','HeyGen'),('桌面板','桌面版'),('资料源','资料员'),('Hyperframes','HyperFrames'),('Hello','哈喽'),('Paracate','Parakeet'),('epidemic','Epidemic'),('减硬','剪辑'),('寄到','记到'),('open screen','Openscreen'),('OpenScreen','Openscreen'),('whisper','Whisper'),('每减一支','每剪一支'),('一只','一支'),('整只','整支'),('这条系统','这套系统')]
 for r in rep:
     for a,b in FIX:
         r['text']=r['text'].replace(a,b)
